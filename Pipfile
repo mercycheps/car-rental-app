@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 alembic = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

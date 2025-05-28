@@ -25,6 +25,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 
 from lib.db.models import Base
+from lib.db.models import engine
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,

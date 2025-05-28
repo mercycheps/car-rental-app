@@ -6,7 +6,8 @@ from sqlalchemy import pool
 from alembic import context
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))  # Adds db/ to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+ # Adds db/ to path
 
   # assuming Base is defined in db/models.py
 
@@ -23,7 +24,7 @@ if config.config_file_name is not None:
 # add your model's MetaData object here
 # for 'autogenerate' support
 
-from models import Base
+from lib.db.models import Base
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,

@@ -1,8 +1,8 @@
-"""Initial migration
+"""Initial tables
 
-Revision ID: 26458b0d0e00
+Revision ID: 23fb034e7b70
 Revises: 
-Create Date: 2025-05-28 12:45:18.100486
+Create Date: 2025-05-29 08:53:29.290010
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '26458b0d0e00'
+revision: str = '23fb034e7b70'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -29,15 +29,17 @@ def upgrade() -> None:
     )
     op.create_table('customers',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.String(), nullable=True),
-    sa.Column('phone', sa.String(), nullable=True),
+    sa.Column('name', sa.String(), nullable=False),
+    sa.Column('address', sa.String(), nullable=False),
+    sa.Column('driving', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('rentals',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('car_id', sa.Integer(), nullable=True),
-    sa.Column('customer_id', sa.Integer(), nullable=True),
-    sa.Column('duration_days', sa.Integer(), nullable=True),
+    sa.Column('car_id', sa.Integer(), nullable=False),
+    sa.Column('customer_id', sa.Integer(), nullable=False),
+    sa.Column('start_date', sa.Date(), nullable=False),
+    sa.Column('end_date', sa.Date(), nullable=False),
     sa.ForeignKeyConstraint(['car_id'], ['cars.id'], ),
     sa.ForeignKeyConstraint(['customer_id'], ['customers.id'], ),
     sa.PrimaryKeyConstraint('id')

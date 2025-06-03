@@ -11,7 +11,7 @@ A command-line application for managing a car rental service. Built with Python,
 - Create, update, delete cars
 - Seed initial data
 - Easily extendable to handle customers, rentals, etc.
-
+-rental prices
 ---
 
 ## 🛠 Setup Instructions
